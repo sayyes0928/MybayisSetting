@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="SqlData">
+ <select id="select_all" resultType="mybatis.java.dto.UserDTO">
+  select * from mybatistest;
+ </select>
+ <select id="select_one" resultType="mybatis.java.dto.UserDTO" parameterType="String">
+  select * from mybatistest where ex01 = #{ex01}
+ </select>
+ <insert id ="insert_data" parameterType="mybatis.java.dto.UserDTO">
+  insert into mybatistest values(#{ex01},#{ex02},#{ex03});
+ </insert>
+ <update id="update_data" parameterType="mybatis.java.dto.UserDTO">
+  update mybatistest set ex01 = #{ex01},ex02 = #{ex02}, ex03= #{ex03} where ex01 = #{ex01} ;
+ </update>
+ 
+ <delete id="delete_data" parameterType="Integer">
+  delete from mybatistest where ex01= #{ex01};
+ </delete>
+</mapper>
