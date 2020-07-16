@@ -8,12 +8,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  <select id="select_all" resultType="mybatis.java.dto.UserDTO">
   select * from mybatistest;
  </select>
+ 
+  <select id="select_QnA" resultType="mybatis.java.dto.QnABBS">
+  select qna_num,qna_title,qna_nickname,qna_time from qna;
+ </select>
+ 
  <select id="select_one" resultType="mybatis.java.dto.UserDTO" parameterType="String">
   select * from mybatistest where ex01 = #{ex01}
  </select>
  <insert id ="insert_data" parameterType="mybatis.java.dto.UserDTO">
   insert into mybatistest values(#{ex01},#{ex02},#{ex03});
  </insert>
+ 
+  <insert id ="insert_qna" parameterType="mybatis.java.dto.QnABBS">
+  insert into qna values(#{qna_nickname},#{qna_post},#{qna_pw},default,#{qna_title},now());
+ </insert>
+ 
  <update id="update_data" parameterType="mybatis.java.dto.UserDTO">
   update mybatistest set ex01 = #{ex01},ex02 = #{ex02}, ex03= #{ex03} where ex01 = #{ex01} ;
  </update>

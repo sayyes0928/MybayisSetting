@@ -1,0 +1,44 @@
+#m_wrap {
+  height: 1000px;
+  width: 100%;
+}
+.QnA_container {
+  width: 80%;
+  height: 80%;
+  border: 1px solid black;
+  margin: 10px auto;
+}
+#QnA_content {
+  width: 500px;
+  height: 500px;
+  resize: none;
+}
+#QnA_container_bbs_table {
+  border: 1px solid red;
+  width: 70%;
+  height: 100%;
+  margin: 10 auto;
+}
+table {
+  width: 100%;
+  margin: 0px 0px;
+}
+table * {
+  border: 1px solid black;
+}
+.QnA_container_bbs_table_title_no {
+  height: 50px;
+  width: 10%;
+}
+.QnA_container_bbs_table_title_title {
+  width: 60%;
+}
+.QnA_container_bbs_table_title_writer {
+  width: 10%;
+}
+.QnA_container_bbs_table_title_comment {
+  width: 10%;
+}
+.QnA_container_bbs_table_title_date {
+  width: 10%;
+}
