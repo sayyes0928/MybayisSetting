@@ -20,6 +20,7 @@
 </head>
 <body>
 <% 
+ String us_id =(String)session.getAttribute("us_id");
  String qna_title = request.getParameter("QnA_title");
  String qna_pw = request.getParameter("QnA_pw");
  String qna_post = request.getParameter("QnA_content");
@@ -29,7 +30,7 @@
  qnaDTO.setQna_title(qna_title);
  qnaDTO.setQna_post(qna_post);
  qnaDTO.setQna_pw(qna_pw);
- qnaDTO.setQna_nickname(qna_nickname);
+ qnaDTO.setQna_nickname(us_id);
  
  SqlSessionFactory sqlfactory = UserDAO.getConn();
  SqlSession sqlsession = sqlfactory.openSession();

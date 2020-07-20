@@ -9,8 +9,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   select * from mybatistest;
  </select>
  
+ <select id="login" parameterType="Object"  resultType="Object">
+  select us_pw from userinfo where us_id = #{us_id};
+ </select>
+ 
+  <select id="select_get_us_nkname" parameterType="String"  resultType="String">
+  select us_nkname from userinfo where us_id = #{us_id};
+ </select>
+ 
   <select id="select_QnA" resultType="mybatis.java.dto.QnABBS">
   select qna_num,qna_title,qna_nickname,qna_time from qna;
+ </select>
+ 
+  <select id="select_QnA_content" resultType="mybatis.java.dto.QnABBS" parameterType="Integer">
+  select * from qna where qna_num = #{qna_num};
  </select>
  
  <select id="select_one" resultType="mybatis.java.dto.UserDTO" parameterType="String">
@@ -26,6 +38,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  
  <update id="update_data" parameterType="mybatis.java.dto.UserDTO">
   update mybatistest set ex01 = #{ex01},ex02 = #{ex02}, ex03= #{ex03} where ex01 = #{ex01} ;
+ </update>
+ 
+  <update id="update_QnA" parameterType="mybatis.java.dto.QnABBS">
+  update qna set qna_title = #{qna_title},qna_post = #{qna_post} where qna_num = #{qna_num} ;
  </update>
  
  <delete id="delete_data" parameterType="Integer">

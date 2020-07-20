@@ -5,6 +5,8 @@ pageEncoding="UTF-8"%>
 <%@page import="org.apache.ibatis.session.SqlSession"%>
 <%@page import="mybatis.java.dao.UserDAO" %>
 <%@page import="mybatis.java.dto.QnABBS" %>
+<%@ page import="java.io.PrintWriter"%>
+<% request.setCharacterEncoding("UTF-8");%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -27,6 +29,17 @@ pageEncoding="UTF-8"%>
     <title>QnA</title>
   </head>
   <body>
+  <% 
+  String us_id =(String)session.getAttribute("us_id");
+  if (us_id == null) { 
+		PrintWriter script = response.getWriter();
+		script.println("<script>");
+		script.println("alert('로그인을 하세요.')");
+		script.println("location.href = 'login.jsp'");
+		script.println("</script>");
+  }
+ 
+ %>
   
       <form id="QnA_writePage" action="QnA_write_ActionPage.jsp" method="get">
         <header>

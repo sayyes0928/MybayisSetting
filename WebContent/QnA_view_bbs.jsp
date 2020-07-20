@@ -5,6 +5,7 @@ pageEncoding="UTF-8"%>
 <%@page import="org.apache.ibatis.session.SqlSession"%>
 <%@page import="mybatis.java.dao.UserDAO" %>
 <%@page import="mybatis.java.dto.QnABBS" %>
+<% request.setCharacterEncoding("UTF-8");%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -28,11 +29,10 @@ pageEncoding="UTF-8"%>
   </head>
   <body>
   <% 
+ String us_id = (String)session.getAttribute("us_id");
  SqlSessionFactory sqlfactory = UserDAO.getConn();
  SqlSession sqlsession = sqlfactory.openSession();
  List<QnABBS> selectList = sqlsession.selectList("select_QnA");
- String userNick = sqlsession.selectOne("select_one");
- 
  
  
 %>
@@ -106,18 +106,25 @@ pageEncoding="UTF-8"%>
                       <td class="QnA_container_bbs_table_title_comment">Comment</td>
                       <td class="QnA_container_bbs_table_title_date">Date</td>
                     </tr>
+                    <tr>
+                    <td>
+                     <%= us_id%>
+                    </td>
+                    </tr>
+                    
                   <% 
                   for(int i = 0; i <selectList.size(); i++ ){ 
-                 
+                	  String userNick = sqlsession.selectOne("select_get_us_nkname",selectList.get(i).getQna_nickname());
+                  
                 	  %>
                     <tr>
                       <td><%= selectList.get(i).getQna_num()%></td>
-                      <td><a href="#"><%= selectList.get(i).getQna_title()%></a></td>
-                      <td><%= selectList.get(i).getQna_nickname()%></td>
+                      <td><a href="QnA_view_content.jsp?qna_num=<%= selectList.get(i).getQna_num()%>"><%= selectList.get(i).getQna_title()%></a></td>
+                      <td><%= userNick%></td>
                       <td>4</td>
                       <td><%= selectList.get(i).getQna_time()%></td>
                     </tr>
-                  <% 
+                  <%
                   } 
                   %>
                   <tr>
