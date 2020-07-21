@@ -1,15 +1,35 @@
 @import "bourbon";
-
+@charset "UTF-8";
+@font-face{
+  font-family: "Okbe";
+  src:url("Okbe_ttf.ttf")format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+*{
+ font-family: "Okbe";
+ 
+}
 body {
+ font-family: "Okbe";
   background: #eee !important;
+}
+.title_logo{
+	width:500px;
+	margin-left:20px;
+	font-size: 60px;
+	font-weight:900;
+	
 }
 
 .wrapper {
   margin-top: 80px;
   margin-bottom: 80px;
+   font-family: "Okbe";
 }
 
 .form-signin {
+  font-family: "Okbe";
   max-width: 380px;
   padding: 15px 35px 45px;
   margin: 0 auto;
@@ -19,6 +39,7 @@ body {
   .form-signin-heading,
   .checkbox {
     margin-bottom: 30px;
+    font-weight:900;
   }
 
   .checkbox {
@@ -48,4 +69,9 @@ body {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
   }
+}
+
+.join_go{
+	font-size:18px;
+	font-weight:800;
 }

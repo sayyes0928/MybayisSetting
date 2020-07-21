@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="java.util.List" %>
 <%@page import="org.apache.ibatis.session.SqlSessionFactory"%>
 <%@page import="org.apache.ibatis.session.SqlSession"%>
@@ -32,14 +31,14 @@ pageEncoding="UTF-8"%>
  String us_id = (String)session.getAttribute("us_id");
   
  String qna_num_not = request.getParameter("qna_num");
- out.print(qna_num_not);
  Integer qna_num = Integer.parseInt(qna_num_not);
- out.print(qna_num);
+ 
  QnABBS qnaDTO = new QnABBS();
  qnaDTO.setQna_num(qna_num);
  
  SqlSessionFactory sqlfactory = UserDAO.getConn();
  SqlSession sqlsession = sqlfactory.openSession();
+ 
  List<QnABBS> selectList = sqlsession.selectList("select_QnA_content",qna_num);
 %>
   

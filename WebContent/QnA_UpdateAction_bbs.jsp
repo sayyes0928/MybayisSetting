@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="java.util.*"%>
 <%@page import="org.apache.ibatis.session.SqlSessionFactory"%>
 <%@page import="org.apache.ibatis.session.SqlSession"%>
@@ -16,16 +15,12 @@
 <body>
 <% 
 
-
- 
  QnABBS qnaDTO = new QnABBS();
  String qna_num_not = request.getParameter("qna_num");
  String qna_title = request.getParameter("qna_title");
  String qna_post = request.getParameter("qna_post");
- out.print(qna_num_not);
  
  Integer qna_num = Integer.parseInt(qna_num_not);
- out.print(qna_num);
  
  qnaDTO.setQna_num(qna_num);
  qnaDTO.setQna_title(qna_title);

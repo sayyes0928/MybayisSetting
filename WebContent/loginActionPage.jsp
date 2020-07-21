@@ -33,14 +33,22 @@ pageEncoding="UTF-8"%>
   String us_id =  request.getParameter("us_id");
   String us_pw = request.getParameter("us_pw");
   
+  UserDAO userDAO = UserDAO.getinstance();
  SqlSessionFactory sqlfactory = UserDAO.getConn();
  SqlSession sqlsession = sqlfactory.openSession();
- Object getPassword_userinfo = sqlsession.selectOne("login",us_id);
+ String getPassword_userinfo = sqlsession.selectOne("login",us_id);
  
- if(us_pw.equals(getPassword_userinfo.toString())){
+ if(us_pw.equals(getPassword_userinfo)){
 	 session.setAttribute("us_id", us_id);
 	 response.sendRedirect("QnA_view_bbs.jsp");
- }else{
+ }else if(getPassword_userinfo == null){
+	 PrintWriter script = response.getWriter();
+		script.println("<script>");
+		script.println("alert('등록되지 않은 사용자입니다.')");
+		script.println("history.back()");
+		script.println("</script>"); 
+ }
+ else{
 		PrintWriter script = response.getWriter();
 		script.println("<script>");
 		script.println("alert('아이디 또는 비밀번호가 잘못 되었습니다.')");

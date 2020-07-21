@@ -50,13 +50,17 @@
  user_dto.setUs_mailagr(us_mailagr);
  user_dto.setUs_adr(us_adr);
  
- SqlSessionFactory factory = DAO.getConn();
+ 
+ UserDAO userDAO = UserDAO.getinstance();
+ SqlSessionFactory factory = UserDAO.getConn();
  SqlSession sqlsession = factory.openSession();
  sqlsession.insert("userinfo_insert", user_dto);
  sqlsession.commit();
  sqlsession.close();
  
+ response.sendRedirect("QnA_view_bbs.jsp");
  
  %>
+ 
 </body>
 </html>

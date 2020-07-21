@@ -34,10 +34,12 @@ pageEncoding="UTF-8"%>
  String qna_num_not = request.getParameter("qna_num");
  out.print(qna_num_not);
  Integer qna_num = Integer.parseInt(qna_num_not);
- out.print(qna_num);
+ out.print(qna_num_not);
+ 
  QnABBS qnaDTO = new QnABBS();
  qnaDTO.setQna_num(qna_num);
  
+ UserDAO userDAO = UserDAO.getinstance();
  SqlSessionFactory sqlfactory = UserDAO.getConn();
  SqlSession sqlsession = sqlfactory.openSession();
  List<QnABBS> selectList = sqlsession.selectList("select_QnA_content",qna_num);
@@ -51,10 +53,20 @@ pageEncoding="UTF-8"%>
               <h1>자취해보자</h1>
             </div>
             <div class="h_div">
-              <ul style="margin: 25px 30px 0 0;">
-                <img src="img/top/top_nav.png" />
-              </ul>
               <div class="serch">
+               <%
+                if(us_id == null){
+              %>
+              <input type="button" value="로그인" onclick="location.href='loginPage.jsp'"/>
+              <input type="button" value="회원가입" onclick="location.href='join.jsp'"/>
+              <%
+              }else{
+              %>
+              <%= us_id%>
+              <input type="button" value="로그아웃" onclick="location.href='logoutActionPage.jsp'"/>
+              <%
+                }
+              %>
               </div>
             </div>
         </div>
@@ -105,34 +117,27 @@ pageEncoding="UTF-8"%>
                 <div id="QnA_container_bbs_table">
                 
                   <table>
-                    <tr class="QnA_container_bbs_table_title">
-                      <td class="QnA_container_bbs_table_title_no">No.</td>
-                      <td class="QnA_container_bbs_table_title_title">Title</td>
-                      <td class="QnA_container_bbs_table_title_writer">Writer</td>
-                      <td class="QnA_container_bbs_table_title_comment">Comment</td>
-                      <td class="QnA_container_bbs_table_title_date">Date</td>
+                    <tr class="content-border">
+                     <td class="QnA_view_content_title"><%= selectList.get(0).getQna_num()%></td>
+                     <td><%= selectList.get(0).getQna_title()%></td>
                     </tr>
- 
                     <tr>
-                     <td><%= selectList.get(0).getQna_num() %></td>
-                     <td><%= selectList.get(0).getQna_title() %></td>
-                     <td><%= selectList.get(0).getQna_post()%></td>
+                    <td colspan="2" style="height:500px"><%= selectList.get(0).getQna_post()%></td>
                     </tr>
                     <%
                      if(us_id.equals(selectList.get(0).getQna_nickname())){
                     %>
                     <tr>
-                     <td>
-                     <a href="QnA_Update_wirte_bbs.jsp?qna_num=<%=qna_num%>">수정</a>
-                     <a href="">삭제</a>
+                     <td colspan="2">
+                     <input type="button" value="수정" onclick="location.href='QnA_Update_wirte_bbs.jsp?qna_num=<%=qna_num%>'" >
+                     <input type="button" value="삭제" onclick="location.href='QnA_Update_wirte_bbs.jsp?qna_num=<%=qna_num%>'" >
+                     <input type="button" value="목록" onclick="history.back()" >
+                     
                      </td>
                     </tr>
                     <% 
                        }
                     %>
-                  <tr>
-                  <td><input type="submit" value="write"></td>
-                  </tr>
                   </table>
                 
                 </div>

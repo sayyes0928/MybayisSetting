@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="header.css" type="text/css">
 <link rel="stylesheet" href="join.css" type="text/css">
@@ -20,12 +20,11 @@
 					<h1>자취해보자</h1>
 				</div>
 				<div class="h_div">
-					<ul style="margin: 25px 30px 0 0">
-						<img src="img/top/top_nav.png">
+					
 						<!-- <li>로그인</li>
           <li>|</li>
           <li>회원가입</li> -->
-					</ul>
+					
 					<div class="serch">
 						<!-- <input type="text" name="" value=""> -->
 					</div>
@@ -41,7 +40,7 @@
 								<li><a href="#">카테고리</a></li>
 								<li><a href="#">베스트</a></li>
 								<li><a href="#">특가</a></li>
-							</ul></li id="sec_menu">
+							</ul>
 						<li><a href="teampro_myhome.html"><span>마이홈</span></a>
 							<ul class="dropdown">
 								<li><a href="#">홈</a></li>
@@ -53,7 +52,7 @@
 							<ul class="dropdown">
 								<li><a href="#">홈</a></li>
 								<li><a href="#">자취생TIP</a></li>
-								<li><a href="#">자취생Q&A</a></li>
+								<li><a href="#">자취생QnA</a></li>
 								<li><a href="#">혼밥레시피</a></li>
 							</ul></li>
 						<li><a href="#"><span>고객센터</span></a>
@@ -66,7 +65,7 @@
 			</div>
 		</header>
 		<section>
-			<table height="1250">
+			<table style="height:1250">
 				<tr>
 					<td id="subtitle" colspan="2">
 						<h2 id="subtitle1">일반</h2>

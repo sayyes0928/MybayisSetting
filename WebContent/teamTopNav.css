@@ -1,14 +1,20 @@
 /* ===========================================
                  HEADER
 ============================================== */
+@charset "UTF-8";
+@font-face{
+  font-family: "Okbe";
+  src:url("Okbe_ttf.ttf")format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
 * {
   margin: 0;
   padding: 0;
-  font-family: "jua";
+  font-family: "Okbe";
 }
-@font-face {
-  src: url("./../fonts/BMJUA_ttf.ttf");
-  font-family: "jua";
+body{
+	font-family: "Okbe";
 }
 
 header {
@@ -31,7 +37,7 @@ header {
 
 #h_wrap h1 {
   font-size: 52px;
-  font-family: "jua";
+  font-family: "Okbe";
   text-align: center;
   width: 360px;
   height: 120px;
@@ -46,7 +52,7 @@ header {
 #h_wrap header nav {
   clear: both;
   height: 60px;
-  /*수정제의 80-->60*/
+  /*�닔�젙�젣�쓽 80-->60*/
   border-top: 1px solid;
   border-bottom: 1px solid;
   margin: 0 auto;
@@ -82,7 +88,7 @@ header {
   text-align: center;
   margin-top: 10px;
   margin-bottom: 10px;
-  font-family: "jua";
+  font-family: "Okbe";
   font-size: 20px;
   list-style: none;
   position: relative;
@@ -116,7 +122,7 @@ header {
 #m_line li > a > span::after {
   content: "";
   width: 0%;
-  left: 0%; /*이값 변경하면 밑줄 위치변경*/
+  left: 0%; /*�씠媛� 蹂�寃쏀븯硫� 諛묒쨪 �쐞移섎�寃�*/
   height: 1px;
   display: block;
   position: absolute;
@@ -232,7 +238,7 @@ ul li ul li a {
                  FOOTER
 ============================================== */
 footer {
-  height: 200px;
+  height: 100px;
   border-top: 1px solid black;
   background-color: #f6f6f6;
 }

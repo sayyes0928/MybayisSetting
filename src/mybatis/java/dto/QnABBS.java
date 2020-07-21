@@ -34,13 +34,7 @@ public void setQna_post(String qna_post) {
 	this.qna_post = qna_post;
 }
 
-public String getQna_pw() {
-	return qna_pw;
-}
-public void setQna_pw(String qna_pw) {
-	this.qna_pw = qna_pw;
-}
-String qna_pw;
+
 String qna_post;
 String qna_title;
 String qna_nickname;

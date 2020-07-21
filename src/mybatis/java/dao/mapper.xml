@@ -9,7 +9,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   select * from mybatistest;
  </select>
  
- <select id="login" parameterType="Object"  resultType="Object">
+  <select id="us_id_select" parameterType="String" resultType="String">
+  select us_id from userinfo where us_id=#{us_id};
+ </select>
+ 
+  <select id="us_nkname_select" parameterType="String" resultType="String">
+  select us_nkname from userinfo where us_nkname=#{us_nkname};
+ </select>
+ 
+  <insert id="userinfo_insert" parameterType="mybatis.java.dto.UserDTO">
+   insert into userinfo values(#{us_id}, #{us_pw}, #{us_name}, #{us_nkname}, #{us_birth}, #{us_tel}, #{us_telagr}, #{us_mail}, #{us_mailagr}, #{us_adr}, #{us_pic});
+ </insert>
+ 
+ <select id="login" parameterType="String"  resultType="String">
   select us_pw from userinfo where us_id = #{us_id};
  </select>
  
@@ -18,7 +30,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  </select>
  
   <select id="select_QnA" resultType="mybatis.java.dto.QnABBS">
-  select qna_num,qna_title,qna_nickname,qna_time from qna;
+  select qna_num,qna_title,qna_nickname,qna_time from qna order by qna_num desc;
  </select>
  
   <select id="select_QnA_content" resultType="mybatis.java.dto.QnABBS" parameterType="Integer">
@@ -33,7 +45,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  </insert>
  
   <insert id ="insert_qna" parameterType="mybatis.java.dto.QnABBS">
-  insert into qna values(#{qna_nickname},#{qna_post},#{qna_pw},default,#{qna_title},now());
+  insert into qna values(#{qna_nickname},#{qna_post},default,#{qna_title},now());
  </insert>
  
  <update id="update_data" parameterType="mybatis.java.dto.UserDTO">

@@ -33,9 +33,11 @@ pageEncoding="UTF-8"%>
   String us_id =(String)session.getAttribute("us_id");
   if (us_id == null) { 
 		PrintWriter script = response.getWriter();
+		
+		
 		script.println("<script>");
 		script.println("alert('로그인을 하세요.')");
-		script.println("location.href = 'login.jsp'");
+		script.println("location.href = 'loginPage.jsp'");
 		script.println("</script>");
   }
  
@@ -116,11 +118,6 @@ pageEncoding="UTF-8"%>
               placeholder="내용을 입력하세요"
             ></textarea>
           </td>
-        </tr>
-        <tr>
-        <td>
-        <input type="text" name="QnA_pw">
-        </td>
         </tr>
         <tr>
           <td><input type="submit" value="등록" /></td>
