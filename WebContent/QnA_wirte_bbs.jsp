@@ -33,8 +33,6 @@ pageEncoding="UTF-8"%>
   String us_id =(String)session.getAttribute("us_id");
   if (us_id == null) { 
 		PrintWriter script = response.getWriter();
-		
-		
 		script.println("<script>");
 		script.println("alert('로그인을 하세요.')");
 		script.println("location.href = 'loginPage.jsp'");

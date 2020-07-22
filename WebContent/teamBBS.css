@@ -17,6 +17,10 @@
   height: 100%;
   resize: none;
 }
+#QnA_container_banner{
+	height:150px;
+	border:1px solid black;
+}
 #QnA_container_bbs_table {
   border-radius: 10px;
   width: 100%;

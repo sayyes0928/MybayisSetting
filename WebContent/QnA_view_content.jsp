@@ -30,11 +30,9 @@ pageEncoding="UTF-8"%>
   <body>
   <% 
  String us_id = (String)session.getAttribute("us_id");
-  
  String qna_num_not = request.getParameter("qna_num");
- out.print(qna_num_not);
+ 
  Integer qna_num = Integer.parseInt(qna_num_not);
- out.print(qna_num_not);
  
  QnABBS qnaDTO = new QnABBS();
  qnaDTO.setQna_num(qna_num);
@@ -125,6 +123,7 @@ pageEncoding="UTF-8"%>
                     <td colspan="2" style="height:500px"><%= selectList.get(0).getQna_post()%></td>
                     </tr>
                     <%
+                    if(us_id != null){
                      if(us_id.equals(selectList.get(0).getQna_nickname())){
                     %>
                     <tr>
@@ -137,6 +136,7 @@ pageEncoding="UTF-8"%>
                     </tr>
                     <% 
                        }
+                    }
                     %>
                   </table>
                 
