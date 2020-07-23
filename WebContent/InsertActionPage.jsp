@@ -21,10 +21,7 @@
  int ex01 = Integer.parseInt(ex001);
  UserDTO userDTO = new UserDTO();
 
- userDTO.setEx01(ex01);
- userDTO.setEx02(ex02);
- userDTO.setEx03(ex03);
- 
+
  SqlSessionFactory sqlfactory = UserDAO.getConn();
  SqlSession sqlsession = sqlfactory.openSession();
  int insert = sqlsession.insert("insert_data",userDTO);

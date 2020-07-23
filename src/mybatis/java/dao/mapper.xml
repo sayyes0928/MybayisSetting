@@ -48,6 +48,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   insert into qna values(#{qna_nickname},#{qna_post},default,#{qna_title},now());
  </insert>
  
+   <insert id ="insert_productinfo" parameterType="mybatis.java.dto.ProductAddDAO">
+  insert into productinfo values(#{pro_code},#{pro_name},#{pro_price},#{pro_mainimg},#{pro_subimg},#{pro_option1},
+  #{pro_option2},#{pro_option3},#{pro_catecode1},#{pro_catecode2},#{pro_catecode3});
+ </insert>
+ 
  <update id="update_data" parameterType="mybatis.java.dto.UserDTO">
   update mybatistest set ex01 = #{ex01},ex02 = #{ex02}, ex03= #{ex03} where ex01 = #{ex01} ;
  </update>
