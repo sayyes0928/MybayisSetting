@@ -110,8 +110,9 @@ pageEncoding="UTF-8"%>
             <ul>
               <li><a href="teampro_ver_01_1.html"><span>홈</span></a>
               <li><a href="teampro_ver_01_1.html"><span>스토어</span></a>
-              <li><a href="teampro_myhome.html"><span>마이홈</span></a>
               <li><a href="teampro_myhome.html"><span>자취에대한 모든것</span></a>
+              <li><a href="teampro_myhome.html"><img src="jachievery.PNG" width="55" height="55"
+              onmouseover="this.src='everyicon.svg'" onmouseout="this.src='jachievery.PNG'"></a>
               <li><a href="teampro_myhome.html"><span>고객센터</span></a>
             </ul>
           </div>
